@@ -6,13 +6,25 @@ package mr
 // remember to capitalize all names.
 //
 
-import "os"
+import (
+	"os"
+	"time"
+)
 import "strconv"
 
 //
 // example to show how to declare the arguments
 // and reply for an RPC.
 //
+
+type Task struct {
+	Type         string // MAP or REDUCE
+	Index        int
+	MapInputFile string
+
+	WorkerID string
+	Deadline time.Time
+}
 
 type ExampleArgs struct {
 	X int
